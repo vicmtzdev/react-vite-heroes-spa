@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
 
-const CharactersByHero = ({ alter_ego, characters }) => {
+// const CharactersByHero = ({ alter_ego, characters }) => {
 
-    if (alter_ego === characters) return (<></>);
+//     if (alter_ego === characters) return (<></>);
 
-    return <p>{characters}</p>
+//     return <p>{characters}</p>
 
-}
+// }
 
 
 export const HeroCard = ({ id, superhero, publisher, alter_ego, first_appearance, characters }) => {
@@ -19,42 +19,29 @@ export const HeroCard = ({ id, superhero, publisher, alter_ego, first_appearance
     return (
         <>
 
-            <div className="col animate__animated animate__fadeIn">
-                <div className="card">
-                    <div className="row no-gutters">
+            <Link className="link-opacity-75-hover link-dark link-underline link-underline-opacity-0" to={`/hero/${id}`}>
 
-                        <div className="col-4">
-                            <img src={heroImageUrl} className="card-img" alt={superhero} />
-                        </div>
 
-                        <div className="col-8">
+                <div className="col animate__animated animate__fadeIn mb-3">
+                    <div className="card" style={{ maxWidth: '28rem' }}>
 
-                            <div className="card-body">
-                                <h5 className="card-title" >{superhero}</h5>
-                                <p className="card-text" >{alter_ego}</p>
+                        <img src={heroImageUrl} className="card-img-top" alt={superhero} style={{ maxHeight: '31rem' }} />
 
-                                {/* {
-                                    (alter_ego !== characters) && charactersByHero
-                                    (alter_ego !== characters) && (<p>{characters}</p>);
-                                } */}
+                        <div className="card-body">
 
-                                <CharactersByHero characters={characters} alter_ego={alter_ego} />
+                            <h5 className="card-title">{superhero}</h5>
+                            <p className="card-text">{alter_ego}</p>
+                            {/* <CharactersByHero characters={characters} alter_ego={alter_ego} /> */}
 
-                                <p className="card-text">
-                                    <small className="text-muted" >{first_appearance}</small>
-                                </p>
-
-                                <Link to={`/hero/${id}`}>
-                                    Ver mas...
-                                </Link>
-
-                            </div>
+                            <p className="card-text">
+                                <small className="text-muted" >{first_appearance}</small>
+                            </p>
 
                         </div>
-
                     </div>
                 </div>
-            </div>
+
+            </Link>
 
         </>
     )
